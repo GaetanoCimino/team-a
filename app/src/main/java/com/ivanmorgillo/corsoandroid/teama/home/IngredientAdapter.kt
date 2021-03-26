@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.ivanmorgillo.corsoandroid.teama.databinding.RecipeItemBinding
 import timber.log.Timber
 
@@ -20,7 +21,6 @@ class IngredientAdapter : RecyclerView.Adapter<RecipeByIngredientViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        Log.d("SHOT","LISTA SIZE${recipes.size}")
         return recipes.size
     }
 
@@ -33,7 +33,9 @@ class IngredientAdapter : RecyclerView.Adapter<RecipeByIngredientViewHolder>() {
 class RecipeByIngredientViewHolder(private val binding:RecipeItemBinding): RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: RecipeByIngredientUI){
-        Log.d("SHOT", "${binding.recipeTitle}")
+       binding.recipeTitle.text = item.title
+        binding.recipeImage.load(item.image)
+
     }
 
 }

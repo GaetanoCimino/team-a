@@ -22,7 +22,7 @@ class IngredientFragment : Fragment(R.layout.fragment_ingredient), SearchView.On
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        binding.recipeList.adapter = recipeByIngredientAdapter
+        binding.recipeByIngredientList.adapter = recipeByIngredientAdapter
 
         viewModel.states.observe(viewLifecycleOwner , {state ->
 
